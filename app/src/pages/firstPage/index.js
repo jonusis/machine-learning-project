@@ -1,12 +1,11 @@
 import React,{ useState } from 'react';
 // import Header from '../../compoments/header/index'
-// import Banner from '../../compoments/banner/index'
+import Banner from '../../compoments/banner/index'
 import imageU from '../../resorse/学习经历_slices/logo.png';
 import imageG from '../../resorse/学习资料_slices/logo.png';
 import imageB from '../../resorse/learn 机器学习_slices/logo.png';
 import imageC from '../../resorse/项目_slices/logo.png'
 import imageH from '../../resorse/合作_slices/logo.png'
-
 import './index.css';
 
 function FirstPage() {
@@ -15,10 +14,11 @@ function FirstPage() {
   const [pageResourse,setpageResourse] = useState('资料来源：《基于主动自步学习的文本分类研究》');
     return (
       <div className="FirstPage">
+        <Banner/>
         <div className="box">
           <div className="introduction">
             <div className="title" onClick = {() =>{
-              setPageText('abc');
+              setPageText('在监督学习中，由于对大量数据都进行标注成本往往太高，所以只对其中一部分数据进行人工标注得到训练集，而用少量有标签样本数据训练的出分类模型往往并不具备足够强泛化能力较弱。此外，海量的无标签数据中又蕴含一些很有价值的信息，对海量的无标签样本数据完全不加利用显得太过浪费。为了解决这个问题,半监督学习的方法应运而生。21 世纪以前，由于计算机的存储性能以及处理性能上的不足，再加上统计学理论并不完善，半监督学习发展较慢。进入 21 世纪之后，半监督学习逐渐成为机器学习领域的重点研究方向之一。');
               setPageTitle('半监督学习');
               setpageResourse('资料来源：《基于主动自步学习的文本分类研究》');
             }}>
@@ -27,18 +27,18 @@ function FirstPage() {
               <div className="signPos1"> > </div>
             </div>
             <div className="title" onClick = {() =>{
-              setPageText('abc');
+              setPageText('简称神经网络或类神经网络，在机器学习和认知科学领域，是一种模仿生物神经网络（动物的中枢神经系统，特别是大脑）的结构和功能的数学模型或计算模型，用于对函数进行估计或近似。神经网络由大量的人工神经元联结进行计算。大多数情况下人工神经网络能在外界信息的基础上改变内部结构，是一种自适应系统，方法的一种实际应用，通过统计学的标准数学方法我们能够得到大量的可以用函数来表达的局部结构空间，另一方面在人工智能学的人工感知领域，我们通过数学统计学的应用可以来做人工感知方面的决定问题（也就是说通过统计学的方法，人工神经网络能够类似人一样具有简单的决定能力和简单的判断能力），这种方法比起正式的逻辑学推理演算更具有优势。');
               setPageTitle('人工神经网络');
-              setpageResourse('资料来源：《基于主动自步学习的文本分类研究》');
+              setpageResourse('资料来源：wikipedia——人工神经网络');
             }}>
               <img src={imageG} className="titleImg" alt=""/>
               <div className="wordStyle"> 人工神经网络</div>
               <div className="signPos2"> > </div>
             </div>
             <div className="title" onClick = {() =>{
-              setPageText('abc');
+              setPageText('Bert是NLP里里程碑式的工作，对于后面NLP的研究和工业应用会产生长久的影响，但是从模型或者方法角度看，Bert借鉴了ELMO，GPT及CBOW，主要提出了Masked 语言模型及Next Sentence Prediction，然而Next Sentence Prediction基本不影响大局，而Masked LM明显借鉴了CBOW的思想。所以说Bert的模型没什么大的创新，更像NLP重要进展的集大成者。');
               setPageTitle('Bert');
-              setpageResourse('资料来源：《基于主动自步学习的文本分类研究》');
+              setpageResourse('资料来源：《从Word Embedding到Bert模型-自然语言处理中的预训练技术发展史》');
             }}>
               <img src={imageB} className="titleImg" alt=""/>
               <div className="wordStyle"> Bert</div>

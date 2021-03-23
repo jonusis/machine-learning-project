@@ -1,0 +1,28 @@
+.header{
+    width:100%;
+    height: 100px;
+    background: #FFFFFF;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.headerTab{
+    width:25%;
+    font-size: 18px;
+    line-height: 35px;
+    font-family: Source Han Sans CN;
+    display: flex;
+    justify-content: space-between;
+}
+a{
+    text-decoration:none;
+    color: black;
+}
+a:hover{
+    border-bottom: 2.5px solid #006372;
+    color:#006372;
+}
+.active{
+    border-bottom: 2.5px solid #006372;
+    color:#006372;
+}
