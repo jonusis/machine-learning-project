@@ -50,6 +50,7 @@
     color: #333333;
     z-index: -1;
     margin-left: 26px;
+    padding-top: 30px;
 }
 .title-text{
     margin-left: 12px;
@@ -60,4 +61,56 @@
 .inforBox-small{
     display: flex;
     justify-content: space-around;
+}
+.inforBox{
+    margin-top: 59px;
+}
+.index1{
+    width: 16px;
+    height: 19px;
+    background: #FF1717;
+    color: #FFFFFF;
+    border-radius: 2px;
+    text-align: center;
+}
+.index2{
+    width: 16px;
+    height: 19px;
+    color: #FFFFFF;
+    background: #FF6917;
+    border-radius: 2px;
+    text-align: center;
+}
+.index3{
+    width: 16px;
+    height: 19px;
+    color: #FFFFFF;
+    background: #FFA517;
+    border-radius: 2px;
+    text-align: center;
+}
+.index4{
+    width: 16px;
+    height: 19px;
+    background: #E5E5E5;
+    border-radius: 2px;
+    color: #333333;
+    text-align: center;
+}
+.inforBoxtitle{
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #413535;
+}
+.inforBoxdate{
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #999999;
+}
+.box1{
+    display: flex;
+    width: 1203px;
+    justify-content: space-between;
 }

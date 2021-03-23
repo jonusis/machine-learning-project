@@ -21,19 +21,39 @@ function SecPage(pros) {
                     <img src={imageU} className="titleImage" alt=''/>
                     <div className="titleText">华中资讯</div>
                 </div>
-                <div className='infor-box'>
-                    <div className='title-infor'>
-                        <img src={imageU} className='infor-image' alt=''></img>
-                        <div className='title-text'>信息媒介</div>
-                        <div className='change'>换一换</div>
+                <div className='box1'>
+                    <div className='infor-box'>
+                        <div className='title-infor'>
+                            <img src={imageU} className='infor-image' alt=''></img>
+                            <div className='title-text'>信息媒介</div>
+                            <div className='change'>换一换</div>
+                        </div>
+                        <div className='inforBox'>
+                        {infor.map((infor,index)=>{ 
+                            return  <div className='inforBox-small'>
+                                        <div className= {index+1 === 1 ? 'index1' : index+1 === 2 ? 'index2' : index+1 === 3 ? 'index3' : 'index4'}>{index+1}</div>
+                                        <div className='inforBoxtitle'>{infor.title}</div>
+                                        <div className='inforBoxdate'>{infor.date}</div>
+                                    </div>
+                        })}
+                        </div>
                     </div>
-                    {infor.map((infor,index)=>{ 
-                        return  <div className='inforBox-small'>
-                                    <div>{index+1}</div>
-                                    <div className='inforBoxtitle'>{infor.title}</div>
-                                    <div className='inforBoxdate'>{infor.date}</div>
-                                </div>
-                    })}
+                    <div className='infor-box'>
+                        <div className='title-infor'>
+                            <img src={imageU} className='infor-image' alt=''></img>
+                            <div className='title-text'>学术论坛</div>
+                            <div className='change'>换一换</div>
+                        </div>
+                        <div className='inforBox'>
+                        {infor.map((infor,index)=>{ 
+                            return  <div className='inforBox-small'>
+                                        <div className= {index+1 === 1 ? 'index1' : index+1 === 2 ? 'index2' : index+1 === 3 ? 'index3' : 'index4'}>{index+1}</div>
+                                        <div className='inforBoxtitle'>{infor.title}</div>
+                                        <div className='inforBoxdate'>{infor.date}</div>
+                                    </div>
+                        })}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
