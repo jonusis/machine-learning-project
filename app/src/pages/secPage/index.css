@@ -1,0 +1,116 @@
+.SecPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.Sbox{
+    height: 326px;
+    width: 1203px;
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.09);
+    opacity: 0.98;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: -80px;
+    background-color: #ffffff;
+}
+.SwordStyle{
+    font-size: 30px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #333333;
+    margin-left: 515px;
+    margin-top: 47px;
+}
+.box-text{
+    font-size: 20px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #333333;
+    margin-left: 107px;
+    margin-right: 117px;
+    margin-top: 41px;
+}
+.infor{
+    margin-top: 75px;
+}
+.infor-box{
+    width: 588px;
+    height: 584px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.09);
+    opacity: 0.98;
+    border-radius: 15px;
+}
+.title-infor{
+    display: flex;
+    font-size: 20px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #333333;
+    z-index: -1;
+    margin-left: 26px;
+    padding-top: 30px;
+}
+.title-text{
+    margin-left: 12px;
+}
+.change{
+    margin-left: 359px;
+}
+.inforBox-small{
+    display: flex;
+    justify-content: space-around;
+}
+.inforBox{
+    margin-top: 59px;
+}
+.index1{
+    width: 16px;
+    height: 19px;
+    background: #FF1717;
+    color: #FFFFFF;
+    border-radius: 2px;
+    text-align: center;
+}
+.index2{
+    width: 16px;
+    height: 19px;
+    color: #FFFFFF;
+    background: #FF6917;
+    border-radius: 2px;
+    text-align: center;
+}
+.index3{
+    width: 16px;
+    height: 19px;
+    color: #FFFFFF;
+    background: #FFA517;
+    border-radius: 2px;
+    text-align: center;
+}
+.index4{
+    width: 16px;
+    height: 19px;
+    background: #E5E5E5;
+    border-radius: 2px;
+    color: #333333;
+    text-align: center;
+}
+.inforBoxtitle{
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #413535;
+}
+.inforBoxdate{
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #999999;
+}
+.box1{
+    display: flex;
+    width: 1203px;
+    justify-content: space-between;
+}
