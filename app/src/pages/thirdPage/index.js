@@ -9,6 +9,7 @@ function ThirdPage() {
     const [algorithm,setAlgorithm] = useState('简单自训练算法（KNN)');
     const [alogorithmId,setId] = useState(0);
     const [submitWay,setSubmitWay] = useState('文本提交');
+    var result = [];
     var textArr = {"data" :["abc"]};
     function choseVal(event){
         setId(event.target.value);
@@ -63,8 +64,10 @@ function ThirdPage() {
                 'Content-Type' : 'application/json; charset=UTF-8',
               }
             }).then((res) => {
-                console.log(res);
-                test.value = "";
+                return res.json();
+            }).then((res) =>{
+                result = result.concat(res.data);
+                console.log(result);
             })
     }
     return(
