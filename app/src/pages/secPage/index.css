@@ -49,21 +49,28 @@
     font-weight: bold;
     color: #333333;
     z-index: -1;
-    margin-left: 26px;
     padding-top: 30px;
+    justify-content: space-between;
 }
 .title-text{
     margin-left: 12px;
 }
 .change{
-    margin-left: 359px;
+    /* margin-left: 359px; */
+    width: 54px;
+    height: 17px;
+    font-size: 18px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #333333;
 }
 .inforBox-small{
     display: flex;
     justify-content: space-around;
+    margin-top: 8px;
 }
 .inforBox{
-    margin-top: 59px;
+    margin-top: 25px;
 }
 .index1{
     width: 16px;
@@ -102,6 +109,7 @@
     font-family: Source Han Sans CN;
     font-weight: 400;
     color: #413535;
+    width: 450px;
 }
 .inforBoxdate{
     font-size: 16px;
@@ -113,4 +121,25 @@
     display: flex;
     width: 1203px;
     justify-content: space-between;
+    margin-top: 20px;
+}
+.changeButton{
+    /* width: 72px; */
+    height: 17px;
+    border: none;
+    background-color: transparent;
+    outline: none; 
+    font-size: 18px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #333333;
+    /* position: relative;
+    left: 20px; */
+}
+.s1{
+    display: flex;
+    width: 200px;
+}
+.infor-image1{
+    margin-right: 8px;
 }
