@@ -93,3 +93,21 @@ input{
     margin-top:40px;
     text-align: center;
 }
+.resTable{
+    margin: 0 auto;
+    width:1000px;
+    text-align: center;
+    margin-top:87px;
+}
+th{
+    height: 80px;
+    font-size: 15px;
+    color: #666666;
+    background: #DCDCDC;
+}
+td{
+    height: 60px;
+    max-width:300px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}

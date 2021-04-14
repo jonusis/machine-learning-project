@@ -6,11 +6,12 @@ import 'antd/dist/antd.css';
 
 
 function ThirdPage() {
+    const selector = ["文本图+简单自训练算法（KNN)","Doc2vec+CentroidEM","TFIDF+CentroidEM","SIF+Word2vec+CentroidEM"];
     const [algorithm,setAlgorithm] = useState('简单自训练算法（KNN)');
-    const [alogorithmId,setId] = useState(0);
+    const [alogorithmId,setId] = useState('0');
     const [submitWay,setSubmitWay] = useState('文本提交');
-    var result = [];
-    var textArr = {"data" :["abc"]};
+    const [resInput,setResInput] = useState([]);
+    var textObj = {"data" :[]};
     function choseVal(event){
         setId(event.target.value);
         var val = event.target.value;
@@ -53,22 +54,30 @@ function ThirdPage() {
         },
     }
     function postInput(){
-        var test = document.getElementById("test");
-        var text2 = test.value; 
-        console.log(text2);
-        fetch('//101.37.163.122:5000/api/v1/sniffle?kind=0', {
-              mode:'cors',
-              method: 'POST',
-              body:JSON.stringify(textArr),
-              headers:{
-                'Content-Type' : 'application/json; charset=UTF-8',
-              }
-            }).then((res) => {
-                return res.json();
-            }).then((res) =>{
-                result = result.concat(res.data);
-                console.log(result);
-            })
+        let test = document.getElementById("test");
+        let text2 = test.value;
+        if(text2.replace(/(^\s*)|(\s*$)/g, "") === ""){
+            alert('您输入的文本内容不能为空或全为空格');
+        }else{
+            let url = '//101.37.163.122:5000/api/v1/sniffle?kind=' + alogorithmId;
+            textObj.data = [];
+            textObj.data.unshift(text2);
+            fetch( url , {
+                mode:'cors',
+                method: 'POST',
+                body:JSON.stringify(textObj),
+                headers:{
+                    'Content-Type' : 'application/json; charset=UTF-8',
+                }
+                }).then((res) => {
+                    return res.json();
+                }).then((res) =>{
+                    let tmparr = {id:resInput.length,messageType:submitWay,messageContent:res.data[0].content,algorithm:selector[alogorithmId],selectRes:res.data[0].result};
+                    setResInput(resInput.concat(tmparr));
+                    console.log(resInput);
+                    test.value = "";
+                })
+        }
     }
     return(
         <div> 
@@ -113,6 +122,24 @@ function ThirdPage() {
                 </div>
                 }
             </div>
+            <table border="1" className="resTable">
+                <tr>
+                    <th>编号</th>
+                    <th>提交信息类型</th>
+                    <th>文本内容/文件名</th>
+                    <th>分类器类型</th>
+                    <th>分类结果</th>
+                </tr>
+                {resInput.map((info) =>{
+                   return <tr>
+                        <td>{info.id}</td>
+                        <td>{info.messageType}</td>
+                        <td>{info.messageContent}</td>
+                        <td>{info.algorithm}</td>
+                        <td>{info.selectRes}</td>
+                        </tr>
+                })}
+            </table>
         </div>
     );    
 }
