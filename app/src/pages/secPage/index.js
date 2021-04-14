@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Banner from '../../compoments/banner/index';
 import imageU from '../../resorse/新闻_slices/新闻.png';
 import imageC from '../../resorse/换一换_slices/换一换.png';
+import BottomBar from '../../compoments/bottomBar'
 import './index.css'
 var data = [],indexNow,dataNow= []
 var data1 = [],indexNow1,dataNow1= []
@@ -243,6 +244,9 @@ function SecPage(pros) {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='bottom'>
+                <BottomBar ></BottomBar>
             </div>
         </div>
     );    

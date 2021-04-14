@@ -1,5 +1,10 @@
+body{
+    margin:0px;
+    padding:0px;
+}
 .SecPage {
     display: flex;
+    height: 100%;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -142,4 +147,9 @@
 }
 .infor-image1{
     margin-right: 8px;
+}
+.bottom{
+    width: 100%;
+    position:absolute;
+    top:235%;
 }
