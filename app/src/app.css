@@ -19,7 +19,7 @@ a{
     text-decoration:none !important;
     color: black !important;
 }
-a:hover{
+.headerTab a:hover{
     border-bottom: 2.5px solid #006372 !important;
     color:#006372 !important;
 }

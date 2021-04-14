@@ -6,12 +6,23 @@ import 'antd/dist/antd.css';
 
 
 function ThirdPage() {
+    // 本地存储的算法类型
     const selector = ["文本图+简单自训练算法（KNN)","Doc2vec+CentroidEM","TFIDF+CentroidEM","SIF+Word2vec+CentroidEM"];
+    // 当前存储的算法
     const [algorithm,setAlgorithm] = useState('简单自训练算法（KNN)');
+    // 当前的算法id
     const [alogorithmId,setId] = useState('0');
+    // 当前的提交方式
     const [submitWay,setSubmitWay] = useState('文本提交');
+    // 存储调api后的输出结果
     const [resInput,setResInput] = useState([]);
-    var textObj = {"data" :[]};
+    // 存储使用文件传输方式的文件列表
+    const [fileArray,setfileArray] = useState([]);
+    // 存储放置在本地，将要上传的到后台接口的文件列表
+    const [localfileList,setfileList] = useState([]);
+    // 用于做上传文件的数组
+    var textObj = {};
+    // 用于做分类器和算法切换
     function choseVal(event){
         setId(event.target.value);
         var val = event.target.value;
@@ -21,27 +32,31 @@ function ThirdPage() {
             setAlgorithm('CentroidEM');
         }
     }
+    // 用于切换提交方式
     function featSubmitWay(event){
         const tempWay = event.target.value;
-        console.log(submitWay);
+        console.log(tempWay);
         setSubmitWay(tempWay);
     }
     const props = {
-        accept: '.txt',
-        action: 'https://101.37.163.122/api/v1/sniffle',
+        accept: '.txt', // 接收文件类型
         name: 'file',
-        previewFile(file) {
-            console.log('Your upload file:', file);
-            // Your process logic. Here we just mock to the same file
-            return fetch('https://101.37.163.122/api/v1/sniffle', {
-              method: 'POST',
-              body: file,
-              headers:{
-                  'content-type' : 'multipart/form-data',
-              }
+        maxCount:5,
+        // 阻塞上传，把文件内容和文件名放置入fileArray
+        beforeUpload(file){
+            return new Promise((reject) => {
+                setfileList(localfileList.concat(file));
+                var reader = new FileReader();
+                reader.readAsText(file, "UTF-8");
+                reader.onload = function() {
+                    console.log('文件内容', this.result);
+                    setfileArray(fileArray.concat({fileName:file.name,fileContent:this.result}));
+                }
+                return reject(false);
             })
-              .then(res => console.log(res.json()))
         },
+        // File类型的文件存放在fileList中
+        fileList : localfileList,
         onChange(info) {
           if (info.file.status !== 'uploading') {
             console.log(info.file, info.fileList);
@@ -53,6 +68,40 @@ function ThirdPage() {
           }
         },
     }
+    // 用于提交文件类型的文本
+    function postMsg(){
+        let url = '//101.37.163.122:5000/api/v1/sniffle?kind=' + alogorithmId;
+        textObj.data = [];
+        console.log(fileArray);
+        fileArray.map((file) => {
+            textObj.data.push({file_name:file.fileName,content:file.fileContent});
+            return textObj;
+        })
+        setfileArray([]);
+        fetch( url , {
+            mode:'cors',
+            method: 'POST',
+            body:JSON.stringify(textObj),
+            headers:{
+                'Content-Type' : 'application/json; charset=UTF-8',
+            }
+            }).then((res) => {
+                return res.json();
+            }).then((res) =>{
+                console.log(res.data);
+                var tmparr = [];
+                res.data.map((item,index) => {
+                    tmparr = tmparr.concat({id:resInput.length + index,messageType:submitWay,messageContent:item.file_name,algorithm:selector[alogorithmId],selectRes:item.result});
+                    return tmparr;
+                })
+                setResInput(resInput.concat(tmparr));
+                console.log(resInput);
+                setfileList([]);
+            }).catch((error) =>{
+                alert(error);
+        })
+    }
+    // 用于文本提交类型的不良文本
     function postInput(){
         let test = document.getElementById("test");
         let text2 = test.value;
@@ -61,7 +110,7 @@ function ThirdPage() {
         }else{
             let url = '//101.37.163.122:5000/api/v1/sniffle?kind=' + alogorithmId;
             textObj.data = [];
-            textObj.data.unshift(text2);
+            textObj.data.unshift({file_name:"",content:text2});
             fetch( url , {
                 mode:'cors',
                 method: 'POST',
@@ -76,6 +125,8 @@ function ThirdPage() {
                     setResInput(resInput.concat(tmparr));
                     console.log(resInput);
                     test.value = "";
+                }).catch((error) =>{
+                    alert(error);
                 })
         }
     }
@@ -113,15 +164,24 @@ function ThirdPage() {
                 </div>
                 </div>
                 :
+                <div className="inputBox">
                 <div className="inputType">
-                    <div className="contentWord">提交文件</div>
-                    <Upload {...props}>
-                        <Button icon={<UploadOutlined />}>Click to Upload</Button>
-                    </Upload>
-                    <div class="permission"> 格式txt 每次上传一张图片</div>
+                    <div className="contentWord margin">提交文件</div>
                 </div>
+                <div className = "upLoad">
+                <Upload {...props}>
+                    <Button icon={<UploadOutlined />}>Click to Upload</Button>
+                </Upload>
+                </div>
+                <div class="permission"> 格式txt 每次至多上传五个文件</div>
+                <div className="mid">
+                    <button className="submit" onClick={postMsg}>提交</button>
+                </div>
+            </div>
                 }
             </div>
+            {resInput.length === 0? 
+            <div></div>:
             <table border="1" className="resTable">
                 <tr>
                     <th>编号</th>
@@ -140,6 +200,7 @@ function ThirdPage() {
                         </tr>
                 })}
             </table>
+            }
         </div>
     );    
 }
