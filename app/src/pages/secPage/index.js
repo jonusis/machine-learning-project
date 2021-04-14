@@ -1,9 +1,12 @@
+
 import { Button } from 'antd';
+
 import React, { useEffect, useState } from 'react';
 import Banner from '../../compoments/banner/index';
 import imageU from '../../resorse/新闻_slices/新闻.png';
 import imageC from '../../resorse/换一换_slices/换一换.png';
 import BottomBar from '../../compoments/bottomBar'
+
 import './index.css'
 var data = [],indexNow,dataNow= []
 var data1 = [],indexNow1,dataNow1= []
@@ -27,6 +30,8 @@ function SecPage(pros) {
                 if(index <= 9){ 
                     dataNow.push(infor)
                 }
+
+                return data;
             })
             indexNow = 9
             setInfor(dataNow)
@@ -47,6 +52,8 @@ function SecPage(pros) {
                 if(index <= 9){ 
                     dataNow1.push(infor)
                 }
+
+                return data1;
             })
             indexNow1 = 9
             setInfor1(dataNow1)
@@ -67,6 +74,8 @@ function SecPage(pros) {
                 if(index <= 9){ 
                     dataNow2.push(infor)
                 }
+
+                return data2;
             })
             indexNow2 = 9
             setInfor2(dataNow2)
@@ -87,6 +96,8 @@ function SecPage(pros) {
                 if(index <= 9){ 
                     dataNow3.push(infor)
                 }
+
+                return data3;
             })
             indexNow3 = 9
             setInfor3(dataNow3)
@@ -103,6 +114,8 @@ function SecPage(pros) {
             if(index >= indexNow && index < indexNow+10){
                 dataNow.push(infor)
             } 
+
+            return dataNow;
         })
         setInfor(dataNow)
         indexNow +=10
@@ -114,6 +127,7 @@ function SecPage(pros) {
             if(index >= indexNow1 && index < indexNow1+10){
                 dataNow1.push(infor)
             } 
+            return data1;
         })
         setInfor1(dataNow1)
         indexNow1 +=10
@@ -125,6 +139,9 @@ function SecPage(pros) {
             if(index >= indexNow2 && index < indexNow2+10){
                 dataNow2.push(infor)
             } 
+
+            return data2;
+
         })
         setInfor2(dataNow2)
         indexNow2 +=10
@@ -136,6 +153,8 @@ function SecPage(pros) {
             if(index >= indexNow3 && index < indexNow3+10){
                 dataNow3.push(infor)
             } 
+
+            return data3;
         })
         setInfor3(dataNow3)
         indexNow3 +=10

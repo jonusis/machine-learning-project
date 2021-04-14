@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React from 'react';
 import './app.css'
 import FirstPage from './pages/firstPage/index';
 import SecPage from './pages/secPage/index';
