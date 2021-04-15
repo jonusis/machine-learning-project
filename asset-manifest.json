@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/machine-learning-project/static/css/main.edb402d0.chunk.css",
-    "main.js": "/machine-learning-project/static/js/main.cf9de46b.chunk.js",
-    "main.js.map": "/machine-learning-project/static/js/main.cf9de46b.chunk.js.map",
-    "runtime-main.js": "/machine-learning-project/static/js/runtime-main.6cf2af2e.js",
-    "runtime-main.js.map": "/machine-learning-project/static/js/runtime-main.6cf2af2e.js.map",
-    "static/css/2.a5497ee8.chunk.css": "/machine-learning-project/static/css/2.a5497ee8.chunk.css",
-    "static/js/2.60b4828c.chunk.js": "/machine-learning-project/static/js/2.60b4828c.chunk.js",
-    "static/js/2.60b4828c.chunk.js.map": "/machine-learning-project/static/js/2.60b4828c.chunk.js.map",
-    "static/js/3.0dea81ff.chunk.js": "/machine-learning-project/static/js/3.0dea81ff.chunk.js",
-    "static/js/3.0dea81ff.chunk.js.map": "/machine-learning-project/static/js/3.0dea81ff.chunk.js.map",
-    "index.html": "/machine-learning-project/index.html",
-    "static/css/2.a5497ee8.chunk.css.map": "/machine-learning-project/static/css/2.a5497ee8.chunk.css.map",
-    "static/css/main.edb402d0.chunk.css.map": "/machine-learning-project/static/css/main.edb402d0.chunk.css.map",
-    "static/js/2.60b4828c.chunk.js.LICENSE.txt": "/machine-learning-project/static/js/2.60b4828c.chunk.js.LICENSE.txt",
-    "static/media/logo.9afdcd1a.png": "/machine-learning-project/static/media/logo.9afdcd1a.png",
-    "static/media/logo.c9000890.png": "/machine-learning-project/static/media/logo.c9000890.png"
+    "main.css": "./static/css/main.df65d976.chunk.css",
+    "main.js": "./static/js/main.e3b7de3b.chunk.js",
+    "main.js.map": "./static/js/main.e3b7de3b.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.da3b4f81.js",
+    "runtime-main.js.map": "./static/js/runtime-main.da3b4f81.js.map",
+    "static/css/2.a5497ee8.chunk.css": "./static/css/2.a5497ee8.chunk.css",
+    "static/js/2.9caac578.chunk.js": "./static/js/2.9caac578.chunk.js",
+    "static/js/2.9caac578.chunk.js.map": "./static/js/2.9caac578.chunk.js.map",
+    "static/js/3.1a634c6d.chunk.js": "./static/js/3.1a634c6d.chunk.js",
+    "static/js/3.1a634c6d.chunk.js.map": "./static/js/3.1a634c6d.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.a5497ee8.chunk.css.map": "./static/css/2.a5497ee8.chunk.css.map",
+    "static/css/main.df65d976.chunk.css.map": "./static/css/main.df65d976.chunk.css.map",
+    "static/js/2.9caac578.chunk.js.LICENSE.txt": "./static/js/2.9caac578.chunk.js.LICENSE.txt",
+    "static/media/logo.9afdcd1a.png": "./static/media/logo.9afdcd1a.png",
+    "static/media/logo.c9000890.png": "./static/media/logo.c9000890.png",
+    "static/media/logo2.528e822d.png": "./static/media/logo2.528e822d.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.6cf2af2e.js",
+    "static/js/runtime-main.da3b4f81.js",
     "static/css/2.a5497ee8.chunk.css",
-    "static/js/2.60b4828c.chunk.js",
-    "static/css/main.edb402d0.chunk.css",
-    "static/js/main.cf9de46b.chunk.js"
+    "static/js/2.9caac578.chunk.js",
+    "static/css/main.df65d976.chunk.css",
+    "static/js/main.e3b7de3b.chunk.js"
   ]
 }
