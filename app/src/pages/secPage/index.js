@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Banner from '../../compoments/banner/index';
+import Footer from '../../compoments/bottomBar/index'
 import imageU from '../../resorse/新闻_slices/新闻.png';
 import imageC from '../../resorse/换一换_slices/换一换.png';
 import './index.css'
@@ -29,7 +30,7 @@ function SecPage(pros) {
             })
             indexNow = 9
             setInfor(dataNow)
-        })
+        }).catch((error) => alert(error))
         fetch('http://101.37.163.122:5000/api/v1/article?kind=1',{
             mode:'cors',
             method: 'GET',
@@ -50,7 +51,7 @@ function SecPage(pros) {
             })
             indexNow1 = 9
             setInfor1(dataNow1)
-        })
+        }).catch((error) => alert(error))
         fetch('http://101.37.163.122:5000/api/v1/article?kind=2',{
             mode:'cors',
             method: 'GET',
@@ -71,7 +72,7 @@ function SecPage(pros) {
             })
             indexNow2 = 9
             setInfor2(dataNow2)
-        })
+        }).catch((error) => alert(error))
         fetch('http://101.37.163.122:5000/api/v1/article?kind=3',{
             mode:'cors',
             method: 'GET',
@@ -92,7 +93,7 @@ function SecPage(pros) {
             })
             indexNow3 = 9
             setInfor3(dataNow3)
-        })
+        }).catch((error) => alert(error))
     },[])
     const [infor,setInfor] = useState(dataNow);
     const [infor1,setInfor1] = useState(dataNow);
@@ -251,6 +252,7 @@ function SecPage(pros) {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );    
 }

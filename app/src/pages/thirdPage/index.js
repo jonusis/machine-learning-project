@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Upload, message, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+import Footer from '../../compoments/bottomBar/index'
 import './index.css'
 import 'antd/dist/antd.css';
 
@@ -200,7 +201,8 @@ function ThirdPage() {
                         </tr>
                 })}
             </table>
-            }
+        }
+        <Footer/>
         </div>
     );    
 }

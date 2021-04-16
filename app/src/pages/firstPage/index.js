@@ -1,11 +1,12 @@
 import React,{ useState } from 'react';
 // import Header from '../../compoments/header/index'
 import Banner from '../../compoments/banner/index'
+import Footer from '../../compoments/bottomBar/index'
 import imageU from '../../resorse/学习经历_slices/logo.png';
 import imageG from '../../resorse/学习资料_slices/logo.png';
 import imageB from '../../resorse/learn 机器学习_slices/logo.png';
-import imageC from '../../resorse/项目_slices/logo.png'
-import imageH from '../../resorse/合作_slices/logo.png'
+import imageC from '../../resorse/项目_slices/logo.png';
+import imageH from '../../resorse/合作_slices/logo.png';
 import './index.css';
 
 function FirstPage() {
@@ -78,6 +79,7 @@ function FirstPage() {
           <div>在项目开发过程中感谢沈显君老师的支持与鼓励，同时也要感谢学长学姐对本项目的教导和帮助。 通过本项目，我们深刻地体会到了团队协作的重要性以及自己知识的不足。在此次开发过程中， 我们学到了许多，认识到了与更优秀的计算机人之间存在的差距。</div>
           </div>
         </div>
+        <Footer/>
       </div>
 
     );
