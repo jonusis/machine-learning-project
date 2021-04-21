@@ -1,29 +1,19 @@
 import React from 'react';
-import imageH from '../../../src/resorse/校徽/logo2.png'
+import imageH from '../../../src/resorse/校徽/logo4.png'
+import imageL from '../../../src/resorse/校徽/logo5.png'
 import './index.css'
 function BottomBar() {
     return(
         <div className='bar'> 
-            <div className='box'>
-            <img src={imageH} className='imag' alt='' />
-            <div className='text'>
-                <ul>
-                    关于我们
-                    <div className='lit'>
-                        <li className='litext'>机器学习</li>
-                        <li className='litext'>相关知识</li>
-                        <li className='litext'>分类器</li>
-                    </div>
-                </ul>
-                <ul>
-                    更多产品
-                    <div className='lit'>
-                        <li className='litext'>半监督学习</li>
-                        <li className='litext'>人工神经网络</li>
-                        <li className='litext'>Bert</li>
-                    </div>
-                </ul>
+            <div className='imgDiv'>
+                <img src={imageH} className='imag' alt='' />
+                <img src={imageL} className='imagL' alt='' />
             </div>
+            <div className="detailMsg">
+                <div className='text'>Copyright © 2005-2020 版权所有：华中师范大学 鄂ICP备05003325号-9</div>
+                <div className="text">地址:湖北省武汉市洪山区珞喻路152号　邮编：430079</div>
+                <div className="text">华中师范大学学生团队出品 | 校级科研立项</div>
+
             </div>
         </div>
     );    

@@ -13,17 +13,15 @@
 .introduction{
     width: 240px;
     height: 275px;
-    padding-top:33px;
+    padding-top:50px;
     background: #FFFFFF;
     box-shadow: 0px 0px 18px 0px rgba(35, 24, 21, 0.09);
     border-radius: 10px;
 }
 .title{
     height: 35px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     padding-left:10px;
+    padding-top: 8px;
     margin-top: 15px;
 }
 .title:hover{
@@ -33,18 +31,23 @@
 .titleImg{
     height: 18px;
     width: 21px;
+    float: left;
 }
 .wordStyle{
     margin-left: 18px;
+    display: inline-block;
 }
 .signPos1{
-    margin-left: 40%;
+    float: right;
+    margin-right: 15px;
 }
 .signPos2{
-    margin-left: 32%;
+    float: right;
+    margin-right: 15px;
 }
 .signPos3{
-    margin-left: 61%;
+    float: right;
+    margin-right: 15px;
 }
 .description{
     width: 646px;

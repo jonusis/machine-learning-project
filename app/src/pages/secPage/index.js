@@ -152,16 +152,21 @@ function SecPage(pros) {
         <div className='SecPage'>  
             <Banner/>
             <div className='Sbox'>
-                <div className="SwordStyle">华中师范大学</div>
+                <div className="SwordStyle">信息资讯系统构建</div>
                 <div className='box-text'>
-                    华中师范大学（Central China Normal University）简称“华中师大”，位于湖北省会武汉，是中华人民共和国教育部直属重点综合性师范大学，国家“211工程”、“985工程优势学科创新平台”重点建设院校，世界一流学科建设高校，入选国家“2011计划”、“111计划”、国家建设高水平大学公派研究生项目、国家大学生文化素质教育基地，中日人文交流大学联盟创始高校，武汉七校联合办学成员，全国首批博士、硕士学位授予单位，国家师范生免费教育试点高校。
+                    <div>考虑到机器学习具备极强的时效性，同时本团队在学习过程中遇到了极多的困难，因此团队构建了网络信息的采集系统，对最新信息进行聚合和处理，最终完成一个机器学习的聚合系统。</div>
+                    <div>为了方便查找，我们将信息分为以下四类：</div>
+                    <div>1. 信息媒体号：其主要目标，是为了以最快的速度报导行业新闻和前沿技术，同时解读一些最新技术。作为相关方向学习者，偶尔了解即可。</div>
+                    <div>2. 学术论坛号：聚焦于前沿学术分享，同时也包括一些行业的信息，推荐、解读人工智能前沿论文成果。作为相关方向学习者，可以选择性精读。</div>
+                    <div>3. 个人博客号：具有很强原创输出能力的个体对自己的学习心得和方法的总结。聚焦于分享自己的学习理念。作为相关方向学习者，可以多认识了解。</div>
+                    <div>4. 系列教程号：对标课堂教材，聚焦于系统性输出知识，让大家能够在一个完整的生态上完成整个的学习过程。作为相关方向学习者，可以系统性跟读。</div>
                 </div>
             </div>
             <div className='infor'>
                 <div className="backWord">Huazhong information</div>
                 <div className="featureTitle">
                     <img src={imageU} className="titleImage" alt=''/>
-                    <div className="titleText">华中资讯</div>
+                    <div className="titleText">信息资讯</div>
                 </div>
                 <div className='box1'>
                     <div className='infor-box'>
