@@ -1,7 +1,7 @@
 import React,{ useState } from 'react';
 // import Header from '../../compoments/header/index'
-import Banner from '../../compoments/banner/index'
-import Footer from '../../compoments/bottomBar/index'
+import Banner from '../../compoments/banner/index';
+import Footer from '../../compoments/bottomBar/index';
 import imageU from '../../resorse/学习经历_slices/logo.png';
 import imageG from '../../resorse/学习资料_slices/logo.png';
 import imageB from '../../resorse/learn 机器学习_slices/logo.png';
