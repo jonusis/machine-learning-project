@@ -8,7 +8,7 @@ import 'antd/dist/antd.css';
 
 function ThirdPage() {
     // 本地存储的算法类型
-    const selector = ["文本图+简单自训练算法（KNN)","Doc2vec+CentroidEM","TFIDF+CentroidEM","SIF+Word2vec+CentroidEM"];
+    const selector = ["文本图+简单自训练算法（KNN)","Doc2vec+CentroidEM","TFIDF+CentroidEM","SIF+Word2vec+CentroidEM","BERT+CNN","BERT+BiLSTM+CRF算法"];
     // 当前存储的算法
     const [algorithm,setAlgorithm] = useState('简单自训练算法（KNN)');
     // 当前的算法id
@@ -29,6 +29,10 @@ function ThirdPage() {
         var val = event.target.value;
         if(val === "0"){
             setAlgorithm('简单自训练算法（KNN）');
+        }else if(val === '4'){
+            setAlgorithm('CNN算法');
+        }else if(val === '5'){
+            setAlgorithm('CRF算法');
         }else{
             setAlgorithm('CentroidEM');
         }
@@ -71,7 +75,9 @@ function ThirdPage() {
     }
     // 用于提交文件类型的文本
     function postMsg(){
-        let url = '//101.37.163.122:5000/api/v1/sniffle?kind=' + alogorithmId;
+        let tempid = alogorithmId;
+        if(alogorithmId === '4' || alogorithmId === '5') tempid = 3;
+        let url = '//101.37.163.122:5000/api/v1/sniffle?kind=' + tempid;
         textObj.data = [];
         console.log(fileArray);
         fileArray.map((file) => {
@@ -109,7 +115,9 @@ function ThirdPage() {
         if(text2.replace(/(^\s*)|(\s*$)/g, "") === ""){
             alert('您输入的文本内容不能为空或全为空格');
         }else{
-            let url = '//101.37.163.122:5000/api/v1/sniffle?kind=' + alogorithmId;
+            let tempid = alogorithmId;
+            if(alogorithmId === '4' || alogorithmId === '5') tempid = 2;
+            let url = '//101.37.163.122:5000/api/v1/sniffle?kind=' + tempid;
             textObj.data = [];
             textObj.data.unshift({file_name:"",content:text2});
             fetch( url , {
@@ -142,6 +150,8 @@ function ThirdPage() {
                         <option value="1">Doc2vec</option>    
                         <option value="2">TFIDF</option>
                         <option value="3">SIF+Word2vec</option>
+                        <option value="4">BERT</option>
+                        <option value="5">BERT+BiLSTM</option>
                     </select>
                 </div>
 
