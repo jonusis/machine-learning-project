@@ -22,7 +22,7 @@ function MessageBox() {
             return res.json()
         }).then(res=>{
             setData(res.list);
-            setTotalPage(res.size);
+            setTotalPage(res.pages);
         }).catch((error) => alert(error))
     }
     function goLastPage(){
