@@ -27,3 +27,14 @@
     margin: 0 auto;
     margin-top:25px;
 }
+td{
+    padding:10px;
+}
+.lastPage:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+.nextPage:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}

@@ -1,5 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import './index.css'
+import Footer from '../../compoments/bottomBar/index';
+
 function MessageBox() {
     useEffect(()=>{
         var url = 'http://101.37.163.122:5000/api/v1/dict?page=' + 1;
@@ -45,6 +47,7 @@ function MessageBox() {
     const[data,setData] = useState([]);
     const[totalPage,setTotalPage] = useState(1);
     return(
+        <div>
         <div className='errorMsg'> 
         <div className="msgTitle">不良语言词典</div>
         <table className="dictionary" border="1">
@@ -65,6 +68,8 @@ function MessageBox() {
             <div className="nextPage" onClick={goNextPage}> 下一页 </div>
         </div>
     </div> 
+    <Footer/>
+    </div>
     )  
 }
 

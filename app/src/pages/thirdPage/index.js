@@ -8,7 +8,7 @@ import 'antd/dist/antd.css';
 
 function ThirdPage() {
     // 本地存储的算法类型
-    const selector = ["文本图+简单自训练算法（KNN)","Doc2vec+CentroidEM","TFIDF+CentroidEM","SIF+Word2vec+CentroidEM","BERT+CNN","BERT+BiLSTM+CRF算法"];
+    const selector = ["文本图+简单自训练算法（KNN)","Doc2vec+CentroidEM","TFIDF+CentroidEM","SIF+Word2vec+CentroidEM","BERT+CNN算法","BERT+BiLSTM+CRF算法"];
     // 当前存储的算法
     const [algorithm,setAlgorithm] = useState('简单自训练算法（KNN)');
     // 当前的算法id
@@ -30,9 +30,9 @@ function ThirdPage() {
         if(val === "0"){
             setAlgorithm('简单自训练算法（KNN）');
         }else if(val === '4'){
-            setAlgorithm('CNN算法');
+            setAlgorithm('None');
         }else if(val === '5'){
-            setAlgorithm('CRF算法');
+            setAlgorithm('None');
         }else{
             setAlgorithm('CentroidEM');
         }
@@ -150,8 +150,8 @@ function ThirdPage() {
                         <option value="1">Doc2vec</option>    
                         <option value="2">TFIDF</option>
                         <option value="3">SIF+Word2vec</option>
-                        <option value="4">BERT</option>
-                        <option value="5">BERT+BiLSTM</option>
+                        <option value="4">BERT+CNN算法</option>
+                        <option value="5">BERT+BiLSTM+CRF算法</option>
                     </select>
                 </div>
 
