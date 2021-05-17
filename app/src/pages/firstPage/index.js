@@ -28,21 +28,21 @@ function FirstPage() {
               <div className="signPos1"> > </div>
             </div>
             <div className="title" onClick = {() =>{
-              setPageText('简称神经网络或类神经网络，在机器学习和认知科学领域，是一种模仿生物神经网络（动物的中枢神经系统，特别是大脑）的结构和功能的数学模型或计算模型，用于对函数进行估计或近似。神经网络由大量的人工神经元联结进行计算。大多数情况下人工神经网络能在外界信息的基础上改变内部结构，是一种自适应系统，方法的一种实际应用，通过统计学的标准数学方法我们能够得到大量的可以用函数来表达的局部结构空间，另一方面在人工智能学的人工感知领域，我们通过数学统计学的应用可以来做人工感知方面的决定问题（也就是说通过统计学的方法，人工神经网络能够类似人一样具有简单的决定能力和简单的判断能力），这种方法比起正式的逻辑学推理演算更具有优势。');
-              setPageTitle('人工神经网络');
-              setpageResourse('资料来源：wikipedia——人工神经网络');
+              setPageText('监督学习，又叫有监督学习，监督式学习，是机器学习的一种方法，可以由训练资料中学到或建立一个模式（函数/learning model），并依次模式推测新的实例。训练资料是由输入物件（通常是向量）和预期输出所组成。函数的输出可以是一个连续的值（称为回归分析），或是预测一个分类标签（称为分类）。一个监督式学习者的任务在观察完一个事先标记过的训练范例（输入和预期输出）后，去预测这个函数对任何可能出现的输入的输出。要达到此目的，学习者必须以“合理”的方式从现有的资料中一般化到非观察到的情况。');
+              setPageTitle('监督学习');
+              setpageResourse('资料来源：《wikipedia——监督学习》');
             }}>
               <img src={imageG} className="titleImg" alt=""/>
-              <div className="wordStyle"> 人工神经网络</div>
+              <div className="wordStyle">监督学习</div>
               <div className="signPos2"> > </div>
             </div>
             <div className="title" onClick = {() =>{
-              setPageText('Bert是NLP里里程碑式的工作，对于后面NLP的研究和工业应用会产生长久的影响，但是从模型或者方法角度看，Bert借鉴了ELMO，GPT及CBOW，主要提出了Masked 语言模型及Next Sentence Prediction，然而Next Sentence Prediction基本不影响大局，而Masked LM明显借鉴了CBOW的思想。所以说Bert的模型没什么大的创新，更像NLP重要进展的集大成者。');
-              setPageTitle('Bert');
-              setpageResourse('资料来源：《从Word Embedding到Bert模型-自然语言处理中的预训练技术发展史》');
+              setPageText('机器学习指从有限的观测数据中学习出具有一般性的规律，并利用这些规律对未知数据进行预测的方法。机器学习是人工智能的一个重要分支，并逐渐成为推动人工智能发展的关键因素。作为一门学科，机器学习通常指一类问题以及解决这类问题的方法，即如何从观测数据（样本）中寻找规律，并利用学习到的规律（模型）对未知或无法观测的数据进行预测。机器学习与人类学习过程比较类似，我们教小孩子识别数字也是这样的过程。');
+              setPageTitle('机器学习');
+              setpageResourse('资料来源：《神经网络与深度学习》');
             }}>
               <img src={imageB} className="titleImg" alt=""/>
-              <div className="wordStyle"> Bert</div>
+              <div className="wordStyle">机器学习</div>
               <div className="signPos3"> > </div>
             </div>
           </div>

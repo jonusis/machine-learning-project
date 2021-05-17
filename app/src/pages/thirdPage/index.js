@@ -8,9 +8,9 @@ import 'antd/dist/antd.css';
 
 function ThirdPage() {
     // 本地存储的算法类型
-    const selector = ["文本图+简单自训练算法（KNN)","Doc2vec+CentroidEM","TFIDF+CentroidEM","SIF+Word2vec+CentroidEM","BERT+CNN算法","BERT+BiLSTM+CRF算法"];
+    const selector = ["图结构+自训练算法","Doc2vec+CentroidEM","TFIDF+CentroidEM","SIF+Word2vec+CentroidEM","BERT+CNN算法","BERT+BiLSTM+CRF算法"];
     // 当前存储的算法
-    const [algorithm,setAlgorithm] = useState('简单自训练算法（KNN)');
+    const [algorithm,setAlgorithm] = useState('自训练算法');
     // 当前的算法id
     const [alogorithmId,setId] = useState('0');
     // 当前的提交方式
@@ -23,17 +23,23 @@ function ThirdPage() {
     const [localfileList,setfileList] = useState([]);
     // 用于做上传文件的数组
     var textObj = {};
+    // 用于修改半监督学习算法和监督学习算法
+    var [algorithmContent,setCnt] = useState('半监督学习算法');
     // 用于做分类器和算法切换
     function choseVal(event){
         setId(event.target.value);
         var val = event.target.value;
         if(val === "0"){
-            setAlgorithm('简单自训练算法（KNN）');
+            setAlgorithm('自训练算法');
+            setCnt('半监督学习算法');
         }else if(val === '4'){
-            setAlgorithm('None');
+            setAlgorithm('CNN算法');
+            setCnt('有监督学习算法');
         }else if(val === '5'){
-            setAlgorithm('None');
+            setAlgorithm('BiLSTM+CRF算法');
+            setCnt('有监督学习算法');
         }else{
+            setCnt('半监督学习算法');
             setAlgorithm('CentroidEM');
         }
     }
@@ -98,7 +104,7 @@ function ThirdPage() {
                 console.log(res.data);
                 var tmparr = [];
                 res.data.map((item,index) => {
-                    tmparr = tmparr.concat({id:resInput.length + index,messageType:submitWay,messageContent:item.file_name,algorithm:selector[alogorithmId],selectRes:item.result});
+                    tmparr = tmparr.concat({id:resInput.length + index,messageType:submitWay,messageContent:item.content,algorithm:selector[alogorithmId],selectRes:item.result});
                     return tmparr;
                 })
                 setResInput(resInput.concat(tmparr));
@@ -146,8 +152,8 @@ function ThirdPage() {
                 <div className="massageBox">
                     <div class="contentWord">分类器选择</div>
                     <select value={alogorithmId} onChange={choseVal}>
-                        <option value="0" selected="selected">文本图</option>    
-                        <option value="1">Doc2vec</option>    
+                        <option value="0" selected="selected">图结构</option>    
+                        <option value="1">Doc2vec</option>
                         <option value="2">TFIDF</option>
                         <option value="3">SIF+Word2vec</option>
                         <option value="4">BERT+CNN算法</option>
@@ -156,7 +162,7 @@ function ThirdPage() {
                 </div>
 
                 <div className="contentSpace">
-                    <div className="contentSelect">半监督算法选择</div>
+                    <div className="contentSelect">{algorithmContent}</div>
                     <div className="contentVal">{algorithm}</div>
                 </div>
                 <div className="submitWay">

@@ -1,0 +1,40 @@
+.errorMsg{
+    width: 800px;
+    border:1px solid black;
+    margin:0 auto;
+    padding: 25px;
+    border-radius: 25px;
+}
+.msgTitle{
+    margin-top: 37px;
+    height: 21px;
+    font-size: 22px;
+    color: #333333;
+    font-weight: bold;
+    text-align: center;
+}
+.dictionary{
+    width:600px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top:50px;
+}
+.pageNum{
+    display: flex;
+    flex-direction:row;
+    width: 200px;
+    justify-content:space-between;
+    margin: 0 auto;
+    margin-top:25px;
+}
+td{
+    padding:10px;
+}
+.lastPage:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+.nextPage:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
