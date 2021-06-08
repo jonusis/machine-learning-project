@@ -15,6 +15,9 @@ function ThirdPage() {
     const [alogorithmId,setId] = useState('0');
     // 当前的提交方式
     const [submitWay,setSubmitWay] = useState('文本提交');
+    // 当前的提交类型
+    const [submitType,setSubmitType] = useState('带标记文本提交');
+    const [falsePredict,setPredict] = useState(0);
     // 存储调api后的输出结果
     const [resInput,setResInput] = useState([]);
     // 存储使用文件传输方式的文件列表
@@ -48,6 +51,11 @@ function ThirdPage() {
         const tempWay = event.target.value;
         console.log(tempWay);
         setSubmitWay(tempWay);
+    }
+    function featSubmitType(event){
+        const tempType = event.target.value;
+        setSubmitType(tempType);
+        setResInput([]);
     }
     const props = {
         accept: '.txt', // 接收文件类型
@@ -83,36 +91,74 @@ function ThirdPage() {
     function postMsg(){
         let tempid = alogorithmId;
         if(alogorithmId === '4' || alogorithmId === '5') tempid = 3;
-        let url = '//101.37.163.122:5000/api/v1/sniffle?kind=' + tempid;
-        textObj.data = [];
-        console.log(fileArray);
-        fileArray.map((file) => {
-            textObj.data.push({file_name:file.fileName,content:file.fileContent});
-            return textObj;
-        })
-        setfileArray([]);
-        fetch( url , {
-            mode:'cors',
-            method: 'POST',
-            body:JSON.stringify(textObj),
-            headers:{
-                'Content-Type' : 'application/json; charset=UTF-8',
-            }
-            }).then((res) => {
-                return res.json();
-            }).then((res) =>{
-                console.log(res.data);
-                var tmparr = [];
-                res.data.map((item,index) => {
-                    tmparr = tmparr.concat({id:resInput.length + index,messageType:submitWay,messageContent:item.content,algorithm:selector[alogorithmId],selectRes:item.result});
-                    return tmparr;
-                })
-                setResInput(resInput.concat(tmparr));
-                console.log(resInput);
-                setfileList([]);
-            }).catch((error) =>{
-                alert(error);
-        })
+        if(submitType === "无标记文本提交"){
+            let url = '//101.37.163.122:5000/api/v1/sniffle?kind=' + tempid;
+            textObj.data = [];
+            console.log(fileArray);
+            fileArray.map((file) => {
+                textObj.data.push({file_name:file.fileName,content:file.fileContent});
+                return textObj;
+            })
+            setfileArray([]);
+            fetch( url , {
+                mode:'cors',
+                method: 'POST',
+                body:JSON.stringify(textObj),
+                headers:{
+                    'Content-Type' : 'application/json; charset=UTF-8',
+                }
+                }).then((res) => {
+                    return res.json();
+                }).then((res) =>{
+                    console.log(res.data);
+                    var tmparr = [];
+                    res.data.map((item,index) => {
+                        tmparr = tmparr.concat({id:resInput.length + index,messageType:submitWay,messageContent:item.content,algorithm:selector[alogorithmId],selectRes:item.result});
+                        return tmparr;
+                    })
+                    setResInput(resInput.concat(tmparr));
+                    console.log(resInput);
+                    setfileList([]);
+                }).catch((error) =>{
+                    alert(error);
+            })
+        }else{
+            let url = '//101.37.163.122:5000/api/v1/sniffle2?kind=' + tempid;
+            textObj.data = [];
+            console.log(fileArray);
+            fileArray.map((file) => {
+                textObj.data.push({content:file.fileContent});
+                return textObj;
+            })
+            setfileArray([]);
+            fetch( url , {
+                mode:'cors',
+                method: 'POST',
+                body:JSON.stringify(textObj),
+                headers:{
+                    'Content-Type' : 'application/json; charset=UTF-8',
+                }
+                }).then((res) => {
+                    return res.json();
+                }).then((res) =>{
+                    console.log(res);
+                    var tmparr = [];
+                    var tmpRedict = 0;
+                    res.data.map((item,index) => {
+                        tmparr = tmparr.concat({id:resInput.length + index,messageType:submitWay,messageTitle:submitType,messageContent:item.result.content,algorithm:selector[alogorithmId],selectRes:item.result.predict,predict:item.result.origin});
+                        if(item.result.origin === item.result.predict){
+                            tmpRedict++;
+                        }
+                        return tmparr;
+                    })
+                    setPredict(tmpRedict + falsePredict);
+                    setResInput(resInput.concat(tmparr));
+                    console.log(resInput);
+                    setfileList([]);
+                }).catch((error) =>{
+                    alert(error + 'error您提交的文件格式有误');
+            })
+        }
     }
     // 用于文本提交类型的不良文本
     function postInput(){
@@ -123,6 +169,7 @@ function ThirdPage() {
         }else{
             let tempid = alogorithmId;
             if(alogorithmId === '4' || alogorithmId === '5') tempid = 2;
+            if(submitType === "无标记文本提交"){
             let url = '//101.37.163.122:5000/api/v1/sniffle?kind=' + tempid;
             textObj.data = [];
             textObj.data.unshift({file_name:"",content:text2});
@@ -143,6 +190,37 @@ function ThirdPage() {
                 }).catch((error) =>{
                     alert(error);
                 })
+            }else{
+            let url = '//101.37.163.122:5000/api/v1/sniffle2?kind=' + tempid;
+            textObj.data = [];
+            textObj.data.unshift({content:text2});
+            fetch( url , {
+                mode:'cors',
+                method: 'POST',
+                body:JSON.stringify(textObj),
+                headers:{
+                    'Content-Type' : 'application/json; charset=UTF-8',
+                }
+                }).then((res) => {
+                    return res.json();
+                }).then((res) =>{
+                    let tmparr = [],tmpRedict = 0;
+                    res.data.map((item,index) => {
+                        tmparr = tmparr.concat({id:resInput.length + index,messageType:submitWay,messageTitle:submitType,messageContent:item.result.content,algorithm:selector[alogorithmId],selectRes:item.result.predict,predict:item.result.origin});
+                        if(item.result.origin === item.result.predict){
+                            tmpRedict++;
+                        }
+                        console.log(falsePredict);
+                        return tmparr;
+                    })
+                    setPredict(tmpRedict + falsePredict);
+                    setResInput(resInput.concat(tmparr));
+                    console.log(resInput);
+                    test.value = "";
+                }).catch((error) =>{
+                    alert(error);
+                })
+            }
         }
     }
     return(
@@ -169,6 +247,11 @@ function ThirdPage() {
                     <div className="contentSelect">文本提交方式</div>
                     <button className="btn blockDistance2" onClick={featSubmitWay} value="文本提交">文本提交</button>
                     <button className="btn blockDistance1" onClick={featSubmitWay} value="上传文件提交">上传文件提交</button>
+                </div>
+                <div className="submitWay">
+                    <div className="contentSelect">文本提交类型</div>
+                    <button className="btn blockDistance2" onClick={featSubmitType} value="带标记文本提交">带标记文本提交</button>
+                    <button className="btn blockDistance1" onClick={featSubmitType} value="无标记文本提交">无标记文本提交</button>
                 </div>
                 {submitWay === "文本提交"?
                 <div>
@@ -197,8 +280,31 @@ function ThirdPage() {
             </div>
                 }
             </div>
-            {resInput.length === 0? 
-            <div></div>:
+            {submitType === "带标记文本提交"? 
+            <div>
+                <div className="conTable">分类器预测成功率为：{Number(falsePredict / resInput.length * 100).toFixed(2) + '%'}</div>
+            <table border="1" className="resTable top">
+            <tr>
+                <th>编号</th>
+                <th>提交信息类型</th>
+                <th>文本内容/文件名</th>
+                <th>分类器类型</th>
+                <th>预测结果</th>
+                <th>分类结果</th>
+            </tr>
+            {resInput.map((info) =>{
+               return <tr>
+                    <td>{info.id}</td>
+                    <td>{info.messageType}</td>
+                    <td>{info.messageContent}</td>
+                    <td>{info.algorithm}</td>
+                    <td>{info.predict}</td>
+                    <td>{info.selectRes}</td>
+                    </tr>
+            })}
+            </table>
+            </div>
+            :
             <table border="1" className="resTable">
                 <tr>
                     <th>编号</th>
